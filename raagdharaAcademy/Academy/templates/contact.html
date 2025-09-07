@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Raagdhara Music Academy</title>
+
+    <!-- Bootstrap CSS & AOS (Animation On Scroll) for smooth animations -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+
+        /* Navbar/Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: #f1e8f2;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            width: 130px;
+            height: 130px;
+            object-fit:fill;
+            border-radius: 50%;
+            border: 4px solid #4f8a8b;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #426b6c;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #e3dee4;
+        }
+
+        .header {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.7rem;
+            color: #3a6868;
+            text-align: left;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #4f8a8b, #ff80bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        /* Hero Contact Section */
+        .contact-hero {
+            background: linear-gradient(135deg, #4f8a8b, #ff80bf);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-top: 100px; /* Added margin to make room for navbar */
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact-hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: 1px solid #ddd;
+            padding: 15px;
+            font-size: 1rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form button {
+            background-color: #4f8a8b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff80bf;
+            color: #4f8a8b;
+        }
+
+        /* Social Media Section */
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            color: #4f8a8b;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff80bf;
+        }
+
+        /* Google Map Section */
+        .map {
+            margin-top: 50px;
+            border: none;
+            width: 100%;
+            height: 400px;
+        }
+
+        footer {
+            background-color: #4f8a8b;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+ {% load static %}
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'logo.png' %}" alt="Raagdhara Logo">
+            </a>
+            <div class="header">Raagdhara Music Academy</div> <!-- Positioned heading -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reviews' %}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Contact Section -->
+    <section class="contact-hero">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you. Get in touch for more information or inquiries!</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form container">
+        <form action="{% url 'submit_contact' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+     {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+    <!-- Social Media Links -->
+    <div class="container text-center social-icons">
+        <a href="https://facebook.com" target="_blank" class="fab fa-facebook"></a>
+        <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
+        <a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a>
+        <a href="https://youtube.com" target="_blank" class="fab fa-youtube"></a>
+    </div>
+
+    <!-- Google Map Section -->
+    <div class="container">
+        <h2 class="text-center mt-5">Find Us</h2>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.017598040568!2d90.41015231513054!3d23.746211484581476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6b53b9b53b1%3A0x558e4e634d21fcf1!2sRaagdhara%20Music%20Academy!5e0!3m2!1sen!2sin!4v1635858018906!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Raagdhara Music Academy. All Rights Reserved.</p>
+        <div>
+            <strong>Email:</strong> <a href="mailto:info@raagdhara.com">info@raagdhara.com</a>
+            <br>
+            <strong>Phone:</strong> +91 123 456 7890
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>

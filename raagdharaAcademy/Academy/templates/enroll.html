@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enroll - Raagdhara Music Academy</title>
+
+    <!-- Bootstrap CSS & AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d6cbd3, #f1c0ec);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            padding-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: #f1e8f2;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            width: 130px;
+            height: 130px;
+            object-fit: fill;
+            border-radius: 50%;
+            border: 4px solid #4f8a8b;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #426b6c;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #e3dee4;
+        }
+
+        /* Heading for Enroll Section */
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            color: #3a6868;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #4f8a8b, #ff80bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
+        }
+
+        /* Form fields styling */
+        .form-container .form-label {
+            font-weight: bold;
+            color: #3a6868;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 20px;
+            border: 2px solid #4f8a8b;
+            padding: 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #ff80bf;
+            box-shadow: 0 0 10px rgba(255, 128, 191, 0.7);
+        }
+
+        .btn-enroll {
+            background-color: #4f8a8b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-enroll:hover {
+            background-color: #ff80bf;
+            color: #3a6868;
+            transform: scale(1.05);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #4f8a8b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        footer .contact-info div {
+            margin: 5px 0;
+        }
+
+        footer .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                margin-top: 30px;
+                padding: 20px;
+            }
+
+            .form-container h2 {
+                font-size: 2rem;
+            }
+
+            .navbar-brand img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+{% load static %}
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="60" class="scrollspy-example">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'logo.png' %}" alt="Raagdhara Logo" />
+            </a>
+            <div class="header">Raagdhara Music Academy</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reviews' %}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enroll Section -->
+    <div class="container mt-5">
+        <h2 class="text-center"></h2>
+
+        {% if messages %}
+        <div class="mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="form-container mt-4" data-aos="fade-up" data-aos-delay="100">
+            <form action="{% url 'submit_enrollment' %}" method="POST">
+                {% csrf_token %}
+
+                <!-- Enroll Now inside form -->
+                <h2 class="text-center mb-4">Enroll Now</h2>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label"><i class="bi bi-person-fill"></i> Full Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label"><i class="bi bi-envelope-fill"></i> Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="mobile" class="form-label"><i class="bi bi-phone-fill"></i> Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobile" name="mobile" pattern="[0-9]{10}" required />
+                    <small class="form-text text-muted">Enter a 10-digit mobile number</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="course" class="form-label"><i class="bi bi-book-fill"></i> Choose Course</label>
+                    <select class="form-select" id="course" name="course" required>
+                        <option value="Vocals">Vocals</option>
+                        <option value="Guitar">Guitar</option>
+                        <option value="Harmonium">Harmonium</option>
+                        <option value="Keyboard">Keyboard</option>
+                        <option value="Theatre">Theatre</option>
+                        <option value="Dance">Dance</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-5">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS & AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <p>&copy; 2025 Raagdhara Music Academy. All Rights Reserved.</p>
+        <div class="contact-info">
+            <div><strong>Email:</strong> <a href="mailto:info@raagdhara.com">info@raagdhara.com</a></div>
+            <div><strong>Phone:</strong> +91 123 456 7890</div>
+            <div><strong>Location:</strong> Raagdhara Music Academy, Main Street, City, Country</div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Raagdhara Music Academy</title>
+
+    <!-- Bootstrap CSS & AOS (Animation On Scroll) for smooth animations -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d6cbd3, #f1c0ec);
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            padding-top: 70px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: #f1e8f2;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            width: 130px;
+            height: 130px;
+            object-fit: fill;
+            border-radius: 50%;
+            border: 4px solid #4f8a8b;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #426b6c;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #e3dee4;
+        }
+
+        /* Heading */
+        .header {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.7rem;
+            color: #3a6868;
+            text-align: left;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #4f8a8b, #ff80bf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        /* Reviews Section */
+        #reviews-section {
+            text-align: center;
+            margin-top: 170px;
+            color: #4f8a8b;
+        }
+
+        #reviews-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3a6868;
+            margin-bottom: 15px;
+        }
+
+        /* Student Review Cards */
+        .review-card {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-card img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .review-card .stars {
+            color: #ffbf00;
+            margin-bottom: 15px;
+        }
+
+        .review-card .review-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .review-card .student-name {
+            font-weight: bold;
+            color: #4f8a8b;
+        }
+
+        /* Customer Review Form */
+        .review-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .review-form input,
+        .review-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .review-form button {
+            background-color: #4f8a8b;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background-color: #ff80bf;
+            color: #3a6868;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .testimonial video {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4f8a8b;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1rem;
+        }
+
+        footer .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        footer .contact-info div {
+            margin: 5px 0;
+        }
+
+        footer .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% load static %}
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'logo.png' %}" alt="Raagdhara Logo">
+            </a>
+            <div class="header">Raagdhara Music Academy</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reviews' %}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reviews Section -->
+    <div id="reviews-section">
+        <h2>What Our Students Say</h2>
+        <div class="container">
+            <!-- Student Review Cards -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="review-card" data-aos="fade-up">
+                        <img src="{% static 'guitar.jpg' %}" alt="Student 1">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Amazing experience! Raagdhara has helped me refine my music skills and expand my horizons!"</p>
+                        <p class="student-name">- Neha Sharma</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-card" data-aos="fade-up">
+                        <img src="{% static 'guitar.jpg' %}" alt="Student 2">
+                        <div class="stars">★★★★☆</div>
+                        <p class="review-text">"I love the diversity of courses. Great teachers and environment!"</p>
+                        <p class="student-name">- Raj Patel</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="review-card" data-aos="fade-up">
+                        <img src="{% static 'guitar.jpg' %}" alt="Student 3">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"A wonderful place to learn music! I recommend it to everyone!"</p>
+                        <p class="student-name">- Ananya Verma</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Review Form -->
+            <div class="review-form" data-aos="fade-up">
+                <h4>Share Your Experience</h4>
+                <form action="{% url 'submit_review' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <textarea name="review" rows="4" placeholder="Your Review" required></textarea>
+                    <input type="number" name="rating" min="1" max="5" placeholder="Rating (1-5)" required>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="testimonials" data-aos="fade-up">
+                <h3>Video Testimonials</h3>
+                <div class="testimonial">
+                    <video controls>
+                        <source src="{% static 'testimonial1.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>"I have grown so much musically, and I am proud of my progress. Thank you, Raagdhara!"</p>
+                </div>
+                <div class="testimonial">
+                    <video controls>
+                        <source src="{% static 'testimonial2.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>"This is the best music academy! Highly recommended for anyone who loves music!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Raagdhara Music Academy. All Rights Reserved.</p>
+        <div class="contact-info">
+            <div><strong>Email:</strong> <a href="mailto:info@raagdhara.com">info@raagdhara.com</a></div>
+            <div><strong>Phone:</strong> +91 123 456 7890</div>
+            <div><strong>Location:</strong> Raagdhara Music Academy, Main Street, City, Country</div>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>
