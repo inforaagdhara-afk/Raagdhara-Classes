@@ -27,6 +27,7 @@ urlpatterns = [
     path('submit_review/', views.submit_review, name='submit_review'),
     path('submit_contact/', views.submit_contact, name='submit_contact'),
     path('enroll/', views.enroll, name='enroll'),
+    path('gallery/', views.gallery, name='gallery'),
     path('submit-enrollment/', views.submit_enrollment, name='submit_enrollment'),
     path('enrollment-success/', views.enrollment_success, name='enrollment_success'),
     path('submit-contact/', views.submit_contact, name='submit_contact'),
