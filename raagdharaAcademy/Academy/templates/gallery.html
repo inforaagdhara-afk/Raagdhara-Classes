@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery | Raagdhara Music Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            padding-top: 80px;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #296868;
+            font-weight: bold;
+        }
+.header {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.4rem;
+            color: #3a6868;
+            text-align: left;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #4f8a8b, #ff80bf); /* Mint Green to Soft Pink */
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .card img {
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .video-embed {
+            width: 100%;
+            height: 300px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'logo.png' %}" alt="Logo" height="60" style="border-radius: 50%;">
+        </a>
+        <span class="header">Raagdhara Classes</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navGallery">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navGallery">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Gallery Title -->
+<div class="container mt-5">
+    <h2 class="gallery-title">Gallery – Memories & Live Classes</h2>
+
+    <!-- Photos Section -->
+    <h4 class="mb-3">📸 Photos</h4>
+    <div class="row g-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo1.jpg' %}" class="card-img-top" alt="Photo 1">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 1</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo2.jpg' %}" class="card-img-top" alt="Photo 2">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 2</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo3.jpg' %}" class="card-img-top" alt="Photo 3">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 3</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo4.jpg' %}" class="card-img-top" alt="Photo 4">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 4</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo5.jpg' %}" class="card-img-top" alt="Photo 5">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 5</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <img src="{% static 'images/gallery/photo6.jpg' %}" class="card-img-top" alt="Photo 6">
+            <div class="card-body text-center">
+                <p class="card-text">Performance 6</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Videos Section -->
+    <h4 class="mt-5 mb-3">🎬 Live Class Recordings</h4>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <div class="card-body">
+                    <p class="card-text text-center">Intro to Hindustani Raag</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <div class="card-body">
+                    <p class="card-text text-center">Western Keyboard Basics</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Posts -->
+    <h4 class="mt-5 mb-3">📢 Student Posts & Highlights</h4>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <p>“Had an amazing class today. Finally played my first Raag!” – <strong>Anjali</strong></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <p>“Our group jam session was 🔥! Loving Raagdhara vibes!” – <strong>Rahul</strong></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <p>“Raagdhara helped me find my musical side. Thank you 🙏” – <strong>Priya</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Raagdhara Music Academy</p>
+    <p>Email: <a href="mailto:info@raagdhara.com">info@raagdhara.com</a> | Phone: +91 123 456 7890</p>
+    <p>Address: Main Street, City, India</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
