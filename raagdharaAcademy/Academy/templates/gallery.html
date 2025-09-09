@@ -11,6 +11,35 @@
             background: #f9f9f9;
             padding-top: 80px;
         }
+          .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background-color: #f1e8f2;
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            width: 130px;
+            height: 130px;
+            object-fit: fill;
+            border-radius: 50%;
+            border: 4px solid #4f8a8b;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #426b6c;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #e3dee4;
+        }
+
 
         .gallery-title {
             text-align: center;
@@ -66,28 +95,29 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'logo.png' %}" alt="Logo" height="60" style="border-radius: 50%;">
-        </a>
-        <span class="header">Raagdhara Classes</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navGallery">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navGallery">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
-              
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link active" href="{% url 'gallery' %}">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-            </ul>
+   <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'logo.png' %}" alt="Raagdhara Logo">
+            </a>
+            <div class="header">Raagdhara Music Academy</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'courses' %}">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'enroll' %}">Enroll</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reviews' %}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 <!-- Gallery Title -->
 <div class="container mt-5">
@@ -203,4 +233,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
