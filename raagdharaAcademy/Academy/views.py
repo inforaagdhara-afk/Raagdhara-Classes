@@ -28,6 +28,9 @@ def about(request):
 def reviews(request):
     return render(request, 'reviews.html')  # Reviews page render
 
+def gallery(request):
+    return render(request, 'gallery.html')
+
 # def enroll_view(request):
 #     courses = Course.objects.all()  # Fetch all courses from the database
 #     return render(request, 'enroll.html', {'courses': courses})
